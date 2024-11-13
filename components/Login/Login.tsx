@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface LoginFormData {
@@ -48,11 +49,11 @@ function Login() {
                 </label>
                 <input
                   id="email"
-                  className={`bg-gray-50 border ${
+                  className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
                     !!form.formState.errors.email?.message
-                      ? "border-red-500"
-                      : "border-gray-300"
-                  } text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+                      ? "border border-red-500"
+                      : ""
+                  }`}
                   placeholder="name@company.com"
                   {...form.register("email", {
                     required: "This field is required",
@@ -122,12 +123,12 @@ function Login() {
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet? &nbsp;
-                <a
-                  href="#"
+                <Link
+                  href="/register"
                   className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                 >
-                  Sign up
-                </a>
+                  Sign Up
+                </Link>
               </p>
             </form>
           </div>
